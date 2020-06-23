@@ -1,0 +1,102 @@
+$background_color: #212121;
+$text_color: white;
+
+@mixin h2 {
+    color:  #cfc09f;
+    font-family: 'Playfair Display', serif;
+}
+
+body{
+    background-color: $background_color;
+    margin: 0;
+    padding: 0;
+}
+*{
+	font-family: Cambria, calibri, Cochin, Georgia, Times, 'Times New Roman', serif;
+	list-style: none;  /* elève les point des <li> */
+	padding: 0;
+}
+header{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    .fond_ecriture{
+        z-index: -10;
+        display: flex;
+        position: absolute;
+        justify-content: flex-end;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        flex-wrap: wrap;
+        h1{
+            margin-top: 35vh;
+            display: flex;
+            font-size: 19em;
+            line-height: 0;
+            -webkit-text-fill-color: $background_color;
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: white;
+            font-family:  'HelveticaNeueLTStd-Bd';
+            opacity: .1;
+            &:first-child{
+                margin-right: 10vw;
+            }
+            &:last-child{
+                margin-top: 0;
+                margin-right: 1vw;
+            }
+        }
+    }
+    nav{
+        display: flex;
+        position: absolute;
+        justify-content: flex-end;
+        width: 100%;
+        ul{
+            display: flex;  
+            flex-direction: row;
+            li{
+                margin-right: 3vw;
+            }
+            a{
+                color: $text_color;
+                text-decoration: none;
+                font-size: 1.2em;
+            }
+        }
+    }
+    .introduction{
+        position: absolute;
+        margin-left: 10%;
+        margin-top: 17%;
+        width: 30%;
+        color: $text_color;
+        h2{
+            font-size: 300%;
+            @include gold_effect();
+        }
+        p{
+            margin-bottom: 10%;
+            margin-right: 30%;
+            font-size: 120%;
+        }
+        button{
+            text-decoration: none;
+            width: 30%;
+            height: 7vh;
+            border: none;
+            border-radius: 3%;
+            background-color:#119DA4;
+          
+            color: $background_color;
+            font-size: 120%;
+            &:last-child{
+                background-color: $background_color;
+                border: 1px solid white;
+                color: $text_color;
+                margin-left: 2%;
+            }
+        }
+    }
+}
