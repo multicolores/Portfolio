@@ -3,6 +3,7 @@ body {
   background-color: #212121;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 * {
@@ -118,7 +119,7 @@ header .introduction button {
   height: 7vh;
   border: none;
   border-radius: 3%;
-  background-color: #119DA4;
+  background-color: #cfc09f;
   color: #212121;
   font-size: 120%;
 }
@@ -128,5 +129,46 @@ header .introduction button:last-child {
   border: 1px solid white;
   color: white;
   margin-left: 2%;
+}
+
+.logo path {
+  stroke-dasharray: 2633;
+  stroke-dashoffset: 2633;
+  -webkit-animation: line 20s ease forwards;
+          animation: line 20s ease forwards;
+}
+
+@-webkit-keyframes line {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes line {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.biographie_title {
+  margin-top: 45vh;
+  margin-left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 100vh;
+}
+
+.bio_paragraphe {
+  position: absolute;
+  margin-left: 10%;
+  width: 40%;
+  height: 100%;
+  margin-top: -55%;
+}
+
+.bio_paragraphe p {
+  margin-left: 20%;
+  margin-right: 20%;
+  color: white;
 }
 /*# sourceMappingURL=style.css.map */
