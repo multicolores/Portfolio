@@ -51,6 +51,8 @@ header .fond_ecriture h1 {
   -webkit-text-stroke-color: white;
   font-family: 'HelveticaNeueLTStd-Bd';
   opacity: .1;
+  -webkit-animation: Prenom_anim 2.5s;
+          animation: Prenom_anim 2.5s;
 }
 
 header .fond_ecriture h1:first-child {
@@ -71,6 +73,8 @@ header nav {
       -ms-flex-pack: end;
           justify-content: flex-end;
   width: 100%;
+  -webkit-animation: nav_anim 3s;
+          animation: nav_anim 3s;
 }
 
 header nav ul {
@@ -105,12 +109,16 @@ header .introduction h2 {
   font-size: 300%;
   color: #cfc09f;
   font-family: 'Playfair Display', serif;
+  -webkit-animation: dev_anim 1.9s;
+          animation: dev_anim 1.9s;
 }
 
 header .introduction p {
   margin-bottom: 10%;
   margin-right: 30%;
   font-size: 120%;
+  -webkit-animation: introduction_anim 3.5s;
+          animation: introduction_anim 3.5s;
 }
 
 header .introduction button {
@@ -122,6 +130,8 @@ header .introduction button {
   background-color: #cfc09f;
   color: #212121;
   font-size: 120%;
+  -webkit-animation: introduction_anim 4s;
+          animation: introduction_anim 4s;
 }
 
 header .introduction button:last-child {
@@ -163,12 +173,114 @@ header .introduction button:last-child {
   margin-left: 10%;
   width: 40%;
   height: 100%;
-  margin-top: -55%;
+  /* margin-top: -55%;*/
 }
 
 .bio_paragraphe p {
   margin-left: 20%;
   margin-right: 20%;
   color: white;
+}
+
+@-webkit-keyframes Prenom_anim {
+  0% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: .1;
+  }
+}
+
+@keyframes Prenom_anim {
+  0% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: .1;
+  }
+}
+
+@-webkit-keyframes nav_anim {
+  0% {
+    margin-top: -10%;
+  }
+  100% {
+    margin-top: 0%;
+  }
+}
+
+@keyframes nav_anim {
+  0% {
+    margin-top: -10%;
+  }
+  100% {
+    margin-top: 0%;
+  }
+}
+
+@-webkit-keyframes dev_anim {
+  0% {
+    -webkit-transform: rotateX(90deg);
+            transform: rotateX(90deg);
+  }
+  80% {
+    -webkit-transform: rotateX(90deg);
+            transform: rotateX(90deg);
+  }
+  100% {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+  }
+}
+
+@keyframes dev_anim {
+  0% {
+    -webkit-transform: rotateX(90deg);
+            transform: rotateX(90deg);
+  }
+  80% {
+    -webkit-transform: rotateX(90deg);
+            transform: rotateX(90deg);
+  }
+  100% {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+  }
+}
+
+@-webkit-keyframes introduction_anim {
+  0% {
+    -webkit-transform: rotateY(90deg);
+            transform: rotateY(90deg);
+  }
+  80% {
+    -webkit-transform: rotateY(90deg);
+            transform: rotateY(90deg);
+  }
+  100% {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
+}
+
+@keyframes introduction_anim {
+  0% {
+    -webkit-transform: rotateY(90deg);
+            transform: rotateY(90deg);
+  }
+  80% {
+    -webkit-transform: rotateY(90deg);
+            transform: rotateY(90deg);
+  }
+  100% {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
 }
 /*# sourceMappingURL=style.css.map */
