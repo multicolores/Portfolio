@@ -1,4 +1,8 @@
 @charset "UTF-8";
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #212121;
   margin: 0;
@@ -142,6 +146,137 @@ header .introduction button:last-child {
 }
 
 .logo path {
+  opacity: 0;
+}
+
+.biographie_section {
+  width: 100vw;
+  height: 100vh;
+}
+
+.biographie_section .biographie_title {
+  margin-top: 45vh;
+  margin-left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 100vh;
+}
+
+.biographie_section img {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  top: 0;
+  opacity: 0;
+  -webkit-transform: translateX(200px);
+          transform: translateX(200px);
+}
+
+.bio_paragraphe {
+  position: absolute;
+  margin-left: 10%;
+  width: 40%;
+  height: 100%;
+  margin-top: -85%;
+}
+
+.bio_paragraphe p {
+  margin-left: 20%;
+  margin-right: 20%;
+  color: white;
+  font-size: 120%;
+}
+
+.portfolio {
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.portfolio h3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: 'Playfair Display';
+  color: #212121;
+  -webkit-text-fill-color: #212121;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+  text-transform: uppercase;
+  font-size: 8vw;
+  line-height: 15vh;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background: white;
+  width: 0%;
+  -webkit-transition: .5s;
+  transition: .5s;
+  letter-spacing: .4vw;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  width: 50%;
+  opacity: .8;
+}
+
+.portfolio img {
+  position: absolute;
+  right: 6%;
+  width: 50%;
+  top: 0;
+  opacity: 1;
+  -webkit-transform: translateY(-110%);
+          transform: translateY(-110%);
+  -webkit-transition: .5s;
+  transition: .5s;
+  border-radius: 1%;
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
+}
+
+.portfolio img:nth-child(3) {
+  left: 10%;
+  width: 40%;
+  opacity: 1;
+  -webkit-transform: translateY(-110%);
+          transform: translateY(-110%);
+}
+
+.portfolio img:hover {
+  -webkit-filter: contrast(110%);
+          filter: contrast(110%);
+  width: 52%;
+  -webkit-filter: grayscale(0%);
+          filter: grayscale(0%);
+}
+
+.portfolio img:nth-child(3):hover {
+  width: 42%;
+}
+
+.portfolio .projet_drone {
+  -webkit-transform: translateY(-50vh);
+          transform: translateY(-50vh);
+}
+
+.textanim_true {
+  stroke-dasharray: 2633;
+  stroke-dashoffset: 2633;
+  -webkit-animation: line 20s ease forwards;
+          animation: line 20s ease forwards;
+}
+
+#textanim_true {
   stroke-dasharray: 2633;
   stroke-dashoffset: 2633;
   -webkit-animation: line 20s ease forwards;
@@ -160,31 +295,12 @@ header .introduction button:last-child {
   }
 }
 
-.biographie_title {
-  margin-top: 45vh;
-  margin-left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  width: 100vh;
-}
-
-.bio_paragraphe {
-  position: absolute;
-  margin-left: 10%;
-  width: 40%;
-  height: 100%;
-  /* margin-top: -55%;*/
-}
-
-.bio_paragraphe p {
-  margin-left: 20%;
-  margin-right: 20%;
-  color: white;
-}
-
 @-webkit-keyframes Prenom_anim {
   0% {
-    opacity: 1;
+    opacity: 0;
+  }
+  15% {
+    opacity: 0;
   }
   40% {
     opacity: 1;
@@ -196,7 +312,10 @@ header .introduction button:last-child {
 
 @keyframes Prenom_anim {
   0% {
-    opacity: 1;
+    opacity: 0;
+  }
+  15% {
+    opacity: 0;
   }
   40% {
     opacity: 1;
