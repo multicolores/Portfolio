@@ -1,271 +1,327 @@
 $background_color: #212121;
 $text_color: white;
-$secondary_color: #cfc09f;
+$secondary_color: #dbcba9;
 
 @mixin h2 {
-    color: $secondary_color;
-    font-family: 'Playfair Display', serif;
+  color: $secondary_color;
+  font-family: "Playfair Display", serif;
 }
-html{
-    scroll-behavior: smooth;
+html {
+  scroll-behavior: smooth;
 }
-body{
-    background-color: $background_color;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
+body {
+  background-color: $background_color;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
-*{
-	font-family: Cambria, calibri, Cochin, Georgia, Times, 'Times New Roman', serif;
-	list-style: none;  /* elève les point des <li> */
-	padding: 0;
+* {
+  font-family: Cambria, calibri, Cochin, Georgia, Times, "Times New Roman",
+    serif;
+  list-style: none; /* elève les point des <li> */
+  padding: 0;
+  box-sizing: border-box;
 }
-
-header{
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    .fond_ecriture{
-        z-index: -10;
-        display: flex;
-        position: absolute;
-        justify-content: flex-end;
-        align-items: center;
-        height: 100%;
-        width: 100%;
-        flex-wrap: wrap;
-        h1{
-            margin-top: 35vh;
-            display: flex;
-            font-size: 19em;
-            line-height: 0;
-            -webkit-text-fill-color: $background_color;
-            -webkit-text-stroke-width: 1px;
-            -webkit-text-stroke-color: white;
-            font-family:  'HelveticaNeueLTStd-Bd';
-            opacity: .1;
-            animation: Prenom_anim 2.5s;
-            &:first-child{
-                margin-right: 10vw;
-            }
-            &:last-child{
-                margin-top: 0;
-                margin-right: 1vw;
-            }
-        }
-    }
-    nav{
-        display: flex;
-        position: absolute;
-        justify-content: flex-end;
-        width: 100%;
-        animation: nav_anim 3s;
-        ul{
-            display: flex;  
-            flex-direction: row;
-            li{
-                margin-right: 3vw;
-            }
-            a{
-                color: $text_color;
-                text-decoration: none;
-                font-size: 1.2em;
-            }
-        }
-    }
-    .introduction{
-        position: absolute;
-        margin-left: 10%;
-        margin-top: 17%;
-        width: 30%;
-        color: $text_color;
-        h2{
-            font-size: 300%;
-            @include h2();
-            animation: dev_anim 1.9s;
-        }
-        p{
-            margin-bottom: 10%;
-            margin-right: 30%;
-            font-size: 120%;
-            animation: introduction_anim 3.5s;
-        }
-        button{
-            text-decoration: none;
-            width: 30%;
-            height: 7vh;
-            border: none;
-            border-radius: 3%;
-            background-color: $secondary_color;
-            color: $background_color;
-            font-size: 120%;
-            animation: introduction_anim 4s;
-            &:last-child{
-                background-color: $background_color;
-                border: 1px solid white;
-                color: $text_color;
-                margin-left: 2%;
-            }
-        }
-    }
-}
-
-.logo path{
+#scroll_top {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  transition-property: background, color, bottom, opacity, visibility;
+  transition-duration: 1s;
+  width: 50px;
+  height: 50px;
+  background: $text_color;
+  z-index: 90;
+  border-radius: 13px;
+  background: #212121;
+  box-shadow: inset -6px -6px 7px #101010, inset 6px 6px 7px #323232;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &[data-show="false"] {
+    bottom: 0;
     opacity: 0;
-}
-.biographie_section{
-    width: 100vw;
-    height: 100vh;
-    .biographie_title{
-        margin-top: 45vh;
-        margin-left: 50%;
-        transform: translateX(-50%);
-        width: 100vh;
-    }
-    img{
-        position: absolute;
-        right: 0;
-        height: 100%;
-        top: 0;
-        opacity: 0;
-        transform: translateX(200px);
-    }
-}
-.bio_paragraphe{
-    position: absolute;
-    margin-left: 10%;
-    width: 40%;
-    height: 100%;
-    margin-top: -85%;
-    p{
-        margin-left: 20%;
-        margin-right: 20%;
-        color: $text_color;
-        font-size: 120%;
-    }
+  }
+  & svg {
+    color: $text_color;
+  }
+  &:hover {
+    cursor: pointer;
+    border-radius: 13px;
+    background: linear-gradient(315deg, #1e1e1e, #232323);
+    box-shadow: -6px -6px 7px #101010, 6px 6px 7px #323232;
+  }
 }
 
-
-.portfolio{
-    width: 100vw;
-    height: 100vh;
+header {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  .fond_ecriture {
+    z-index: -10;
     display: flex;
-    justify-content: center;
-    h3{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-family: 'Playfair Display';
-        color: $background_color;
-        -webkit-text-fill-color: $background_color;
-        -webkit-text-stroke-width: 1px;
-        -webkit-text-stroke-color: $text_color;
-        text-transform: uppercase;
-        font-size: 8vw;
-        line-height: 15vh;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background: $text_color;
-        width: 0%;
-        transition: .5s;
-        letter-spacing: .4vw;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        width: 50%;
-        opacity: .8;
-    }
-    img{
-        position: absolute;
-        right: 6%;
-        width: 50%;
-        top: 0;
-        opacity: 1;
-        transform: translateY(-110%);
-        transition: .5s;
-        border-radius: 1%;
-        filter: grayscale(100%);
-        &:nth-child(3){
-            left: 10%;
-            width: 40%;
-            opacity: 1;
-            transform: translateY(-110%);
-        }
-        &:hover{
-            filter: contrast(110%);
-            width: 52%;
-            filter: grayscale(0%);
-        }
-        &:nth-child(3):hover{
-            width: 42%;
-        }
-    }
-    .projet_drone{
-        transform: translateY(-50vh);
-    }
-}
-
-
-.textanim_true{
-    stroke-dasharray: 2633;
-    stroke-dashoffset: 2633;
-    animation: line 20s ease forwards;
-}
-#textanim_true{
-    stroke-dasharray: 2633;
-    stroke-dashoffset: 2633;
-    animation: line 20s ease forwards;
-}
-@keyframes line {
-    to {
-        stroke-dashoffset: 0;
-    }
-}
-@keyframes Prenom_anim {
-    0% {
-        opacity: 0;
-    }
-    15% {
-        opacity: 0;
-    }
-    40%{
-        opacity: 1;
-    }
-    100% {
-        opacity: .1;
+    position: absolute;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    flex-wrap: wrap;
+    h1 {
+      margin-top: 35vh;
+      display: flex;
+      font-size: 19em;
+      line-height: 0;
+      -webkit-text-fill-color: $background_color;
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: white;
+      font-family: "HelveticaNeueLTStd-Bd";
+      opacity: 0.1;
+      animation: Prenom_anim 2.5s;
+      &:first-child {
+        margin-right: 10vw;
+      }
+      &:last-child {
+        margin-top: 0;
+        margin-right: 1vw;
+      }
     }
   }
-@keyframes nav_anim {
-    0% {
-        margin-top: -10%;
+  nav {
+    display: flex;
+    position: absolute;
+    justify-content: flex-end;
+    width: 100%;
+    animation: nav_anim 3s;
+    ul {
+      display: flex;
+      flex-direction: row;
+      li {
+        margin-right: 3vw;
+      }
+      a {
+        color: $text_color;
+        text-decoration: none;
+        font-size: 1.2em;
+        opacity: 0.7;
+        transition: 0.3s;
+        &:hover {
+          opacity: 1;
+        }
+        &::after {
+          content: "";
+          display: block;
+          width: 0;
+          height: 1px;
+          background: $text_color;
+          z-index: 9;
+          transition: 0.6s;
+          opacity: 0.5;
+        }
+        &:hover::after {
+          width: 100%;
+          opacity: 0.7;
+        }
+      }
     }
-    100% {
-        margin-top: 0%;
+  }
+  .introduction {
+    position: absolute;
+    margin-left: 10%;
+    margin-top: 17%;
+    width: 30%;
+    color: $text_color;
+    h2 {
+      font-size: 300%;
+      @include h2();
+      animation: dev_anim 1.9s;
+      transform-origin: left;
     }
-}
-@keyframes dev_anim {
-    0% {
-        transform: rotateX(90deg);
-      
+    p {
+      margin-bottom: 10%;
+      margin-right: 30%;
+      font-size: 120%;
+      animation: introduction_anim 3.5s;
+      transform-origin: left;
+      opacity: 0.7;
     }
-    80%{
-        transform: rotateX(90deg);
-        
+    button {
+      text-decoration: none;
+      width: 30%;
+      height: 7vh;
+      border: none;
+      border-radius: 3%;
+      background-color: $secondary_color;
+      color: $background_color;
+      font-size: 120%;
+      transition: 0.5s;
+      animation: introduction_anim 4s;
+      &:hover {
+        width: 31%;
+        height: 7.3vh;
+      }
+      &:last-child {
+        background-color: $background_color;
+        border: 1px solid white;
+        color: $text_color;
+        margin-left: 2%;
+      }
     }
-    100% {
-        transform: rotateX(0deg);
-        
-    }
-}
-@keyframes introduction_anim {
-    0% {
-        transform: rotateY(90deg);
-    }
-    80%{
-        transform: rotateY(90deg);
-    }
-    100% {
-        transform: rotateY(0deg);
-    }
+  }
 }
 
-  
+.logo path {
+  opacity: 0;
+}
+.biographie_section {
+  width: 100vw;
+  height: 100vh;
+  .biographie_title {
+    margin-top: 5vh;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 100vh;
+  }
+  img {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    top: 0;
+    opacity: 0;
+    transform: translateX(200px);
+  }
+}
+.bio_paragraphe {
+  position: absolute;
+  margin-left: 10%;
+  width: 40%;
+  height: 100%;
+  margin-top: -85%;
+  p {
+    margin-left: 20%;
+    margin-right: 20%;
+    color: $text_color;
+    font-size: 120%;
+  }
+}
+
+.portfolio {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  h3 {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-family: "Playfair Display";
+    color: $background_color;
+    -webkit-text-fill-color: $background_color;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: $text_color;
+    text-transform: uppercase;
+    font-size: 8vw;
+    line-height: 15vh;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background: $text_color;
+    width: 0%;
+    transition: 0.5s;
+    letter-spacing: 0.4vw;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    width: 50%;
+    opacity: 0.8;
+  }
+  img {
+    position: absolute;
+    right: 6%;
+    width: 50%;
+    top: 0;
+    opacity: 1;
+
+    transform: translate(120%, 40vh);
+
+    transition: 0.5s;
+    border-radius: 1%;
+    cursor: pointer;
+    filter: grayscale(100%);
+    &:nth-child(3) {
+      left: 10%;
+      width: 30%;
+      opacity: 1;
+      transform: translate(300%, 35vh);
+    }
+    &:hover {
+      filter: contrast(110%);
+      width: 52%;
+      filter: grayscale(0%);
+    }
+    &:nth-child(3):hover {
+      width: 32%;
+    }
+  }
+  .projet_drone {
+    transform: translate(120%, 40vh);
+  }
+}
+
+.textanim_true {
+  stroke-dasharray: 2633;
+  stroke-dashoffset: 2633;
+  animation: line 20s ease forwards;
+}
+#textanim_true {
+  stroke-dasharray: 2633;
+  stroke-dashoffset: 2633;
+  animation: line 20s ease forwards;
+}
+@keyframes line {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes Prenom_anim {
+  0% {
+    opacity: 0;
+  }
+  15% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.1;
+  }
+}
+@keyframes nav_anim {
+  0% {
+    margin-top: -10%;
+  }
+  100% {
+    margin-top: 0%;
+  }
+}
+@keyframes dev_anim {
+  0% {
+    transform: rotateX(90deg);
+  }
+  80% {
+    transform: rotateX(90deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+
+@keyframes introduction_anim {
+  0% {
+    transform: scaleX(0);
+  }
+  80% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}

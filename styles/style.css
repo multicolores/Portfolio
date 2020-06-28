@@ -11,10 +11,56 @@ body {
 }
 
 * {
-  font-family: Cambria, calibri, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: Cambria, calibri, Cochin, Georgia, Times, "Times New Roman", serif;
   list-style: none;
   /* elève les point des <li> */
   padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#scroll_top {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  -webkit-transition-property: background, color, bottom, opacity, visibility;
+  transition-property: background, color, bottom, opacity, visibility;
+  -webkit-transition-duration: 1s;
+          transition-duration: 1s;
+  width: 50px;
+  height: 50px;
+  background: white;
+  z-index: 90;
+  border-radius: 13px;
+  background: #212121;
+  -webkit-box-shadow: inset -6px -6px 7px #101010, inset 6px 6px 7px #323232;
+          box-shadow: inset -6px -6px 7px #101010, inset 6px 6px 7px #323232;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#scroll_top[data-show="false"] {
+  bottom: 0;
+  opacity: 0;
+}
+
+#scroll_top svg {
+  color: white;
+}
+
+#scroll_top:hover {
+  cursor: pointer;
+  border-radius: 13px;
+  background: linear-gradient(315deg, #1e1e1e, #232323);
+  -webkit-box-shadow: -6px -6px 7px #101010, 6px 6px 7px #323232;
+          box-shadow: -6px -6px 7px #101010, 6px 6px 7px #323232;
 }
 
 header {
@@ -53,8 +99,8 @@ header .fond_ecriture h1 {
   -webkit-text-fill-color: #212121;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: white;
-  font-family: 'HelveticaNeueLTStd-Bd';
-  opacity: .1;
+  font-family: "HelveticaNeueLTStd-Bd";
+  opacity: 0.1;
   -webkit-animation: Prenom_anim 2.5s;
           animation: Prenom_anim 2.5s;
 }
@@ -99,6 +145,30 @@ header nav ul a {
   color: white;
   text-decoration: none;
   font-size: 1.2em;
+  opacity: 0.7;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+header nav ul a:hover {
+  opacity: 1;
+}
+
+header nav ul a::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 1px;
+  background: white;
+  z-index: 9;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+  opacity: 0.5;
+}
+
+header nav ul a:hover::after {
+  width: 100%;
+  opacity: 0.7;
 }
 
 header .introduction {
@@ -111,10 +181,12 @@ header .introduction {
 
 header .introduction h2 {
   font-size: 300%;
-  color: #cfc09f;
-  font-family: 'Playfair Display', serif;
+  color: #dbcba9;
+  font-family: "Playfair Display", serif;
   -webkit-animation: dev_anim 1.9s;
           animation: dev_anim 1.9s;
+  -webkit-transform-origin: left;
+          transform-origin: left;
 }
 
 header .introduction p {
@@ -123,6 +195,9 @@ header .introduction p {
   font-size: 120%;
   -webkit-animation: introduction_anim 3.5s;
           animation: introduction_anim 3.5s;
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  opacity: 0.7;
 }
 
 header .introduction button {
@@ -131,11 +206,18 @@ header .introduction button {
   height: 7vh;
   border: none;
   border-radius: 3%;
-  background-color: #cfc09f;
+  background-color: #dbcba9;
   color: #212121;
   font-size: 120%;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
   -webkit-animation: introduction_anim 4s;
           animation: introduction_anim 4s;
+}
+
+header .introduction button:hover {
+  width: 31%;
+  height: 7.3vh;
 }
 
 header .introduction button:last-child {
@@ -155,7 +237,7 @@ header .introduction button:last-child {
 }
 
 .biographie_section .biographie_title {
-  margin-top: 45vh;
+  margin-top: 5vh;
   margin-left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
@@ -205,10 +287,10 @@ header .introduction button:last-child {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-family: 'Playfair Display';
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  font-family: "Playfair Display";
   color: #212121;
   -webkit-text-fill-color: #212121;
   -webkit-text-stroke-width: 1px;
@@ -220,13 +302,13 @@ header .introduction button:last-child {
   -webkit-text-fill-color: transparent;
   background: white;
   width: 0%;
-  -webkit-transition: .5s;
-  transition: .5s;
-  letter-spacing: .4vw;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  letter-spacing: 0.4vw;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   width: 50%;
-  opacity: .8;
+  opacity: 0.8;
 }
 
 .portfolio img {
@@ -235,21 +317,22 @@ header .introduction button:last-child {
   width: 50%;
   top: 0;
   opacity: 1;
-  -webkit-transform: translateY(-110%);
-          transform: translateY(-110%);
-  -webkit-transition: .5s;
-  transition: .5s;
+  -webkit-transform: translate(120%, 40vh);
+          transform: translate(120%, 40vh);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
   border-radius: 1%;
+  cursor: pointer;
   -webkit-filter: grayscale(100%);
           filter: grayscale(100%);
 }
 
 .portfolio img:nth-child(3) {
   left: 10%;
-  width: 40%;
+  width: 30%;
   opacity: 1;
-  -webkit-transform: translateY(-110%);
-          transform: translateY(-110%);
+  -webkit-transform: translate(300%, 35vh);
+          transform: translate(300%, 35vh);
 }
 
 .portfolio img:hover {
@@ -261,12 +344,12 @@ header .introduction button:last-child {
 }
 
 .portfolio img:nth-child(3):hover {
-  width: 42%;
+  width: 32%;
 }
 
 .portfolio .projet_drone {
-  -webkit-transform: translateY(-50vh);
-          transform: translateY(-50vh);
+  -webkit-transform: translate(120%, 40vh);
+          transform: translate(120%, 40vh);
 }
 
 .textanim_true {
@@ -306,7 +389,7 @@ header .introduction button:last-child {
     opacity: 1;
   }
   100% {
-    opacity: .1;
+    opacity: 0.1;
   }
 }
 
@@ -321,7 +404,7 @@ header .introduction button:last-child {
     opacity: 1;
   }
   100% {
-    opacity: .1;
+    opacity: 0.1;
   }
 }
 
@@ -375,31 +458,31 @@ header .introduction button:last-child {
 
 @-webkit-keyframes introduction_anim {
   0% {
-    -webkit-transform: rotateY(90deg);
-            transform: rotateY(90deg);
+    -webkit-transform: scaleX(0);
+            transform: scaleX(0);
   }
   80% {
-    -webkit-transform: rotateY(90deg);
-            transform: rotateY(90deg);
+    -webkit-transform: scaleX(0);
+            transform: scaleX(0);
   }
   100% {
-    -webkit-transform: rotateY(0deg);
-            transform: rotateY(0deg);
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
   }
 }
 
 @keyframes introduction_anim {
   0% {
-    -webkit-transform: rotateY(90deg);
-            transform: rotateY(90deg);
+    -webkit-transform: scaleX(0);
+            transform: scaleX(0);
   }
   80% {
-    -webkit-transform: rotateY(90deg);
-            transform: rotateY(90deg);
+    -webkit-transform: scaleX(0);
+            transform: scaleX(0);
   }
   100% {
-    -webkit-transform: rotateY(0deg);
-            transform: rotateY(0deg);
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
   }
 }
 /*# sourceMappingURL=style.css.map */
