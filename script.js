@@ -1,16 +1,20 @@
 //icons
 feather.replace();
+
 //scroll to top
 const scroll_to_top = document.getElementById("scroll_top");
+const menu_section = document.getElementById("menu_onclick");
 let dataShow = false;
 
 window.addEventListener("scroll", () => {
   if (window.scrollY > 60 && !dataShow) {
     scroll_to_top.setAttribute("data-show", "true");
+    menu_section.setAttribute("data-show", "true");
     dataShow = false;
   }
   if (window.scrollY <= 60 && !dataShow) {
     scroll_to_top.setAttribute("data-show", "false");
+    menu_section.setAttribute("data-show", "false");
     dataShow = false;
   }
 });

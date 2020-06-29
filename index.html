@@ -29,8 +29,64 @@
     <title>Florian TELLIER</title>
   </head>
   <body>
+    <section class="menu_section menu_section_close" id="menu_section">
+      <a
+        id="menu_onclick_close"
+        onclick="document.getElementById('menu_section').className = 'menu_section menu_section_close'; "
+      >
+        Close
+      </a>
+      <div>
+        <nav class="nav_invisible" id="nav_invi">
+          <ul>
+            <li>
+              <a
+                href="#Biographie"
+                onclick="document.getElementById('menu_section').className = 'menu_section menu_section_close'; "
+              >
+                Biographie</a
+              >
+            </li>
+
+            <li>
+              <a
+                href="#portfolio"
+                onclick="document.getElementById('menu_section').className = 'menu_section menu_section_close'; "
+              >
+                Portfolio</a
+              >
+            </li>
+
+            <li>
+              <a
+                href="#compétences"
+                onclick="document.getElementById('menu_section').className = 'menu_section menu_section_close'; "
+              >
+                Compétences</a
+              >
+            </li>
+
+            <li>
+              <a
+                href="#contact"
+                onclick="document.getElementById('menu_section').className = 'menu_section menu_section_close'; "
+              >
+                Contact</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </section>
     <div id="scroll_top" data-show="false">
       <i data-feather="arrow-up"></i>
+    </div>
+    <div id="menu_onclick" data-show="false">
+      <a
+        onclick="document.getElementById('menu_section').className = 'menu_section menu_section_open'; "
+      >
+        Menu
+      </a>
     </div>
     <header>
       <!---Menu --->
