@@ -10,6 +10,28 @@ body {
   overflow-x: hidden;
 }
 
+*::-moz-selection {
+  background: #f3f3f1f7;
+  color: black;
+  mix-blend-mode: difference;
+}
+
+*::selection {
+  background: #f3f3f1f7;
+  color: black;
+  mix-blend-mode: difference;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+
 * {
   font-family: Cambria, calibri, Cochin, Georgia, Times, "Times New Roman", serif;
   list-style: none;
@@ -17,6 +39,81 @@ body {
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  cursor: default;
+}
+
+/*
+//! cursor
+.cursor {
+  z-index: 100;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: $third_color;
+  position: absolute;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  transition: width 0.3s ease, height 0.3s ease;
+}
+.cursor_hover {
+  width: 50px;
+  height: 50px;
+  border: 1px solid $third_color;
+  background-color: rgba(255, 255, 255, 0);
+  transform: translate(-15px, -15px);
+}*/
+.scroll_down {
+  position: fixed;
+  right: 0.3%;
+  width: 25px;
+  height: 40px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.089);
+  overflow: hidden;
+  right: 50%;
+  top: 92%;
+  -webkit-animation: introduction_anim 6s;
+          animation: introduction_anim 6s;
+  z-index: -1;
+}
+
+.scroll_down::before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.384);
+  top: 5px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  -webkit-animation: scroll_down 1.7s ease-out infinite;
+          animation: scroll_down 1.7s ease-out infinite;
+}
+
+@-webkit-keyframes scroll_down {
+  from {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  to {
+    -webkit-transform: translateY(10px);
+            transform: translateY(10px);
+    opacity: 0;
+  }
+}
+
+@keyframes scroll_down {
+  from {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  to {
+    -webkit-transform: translateY(10px);
+            transform: translateY(10px);
+    opacity: 0;
+  }
 }
 
 #scroll_top {
@@ -44,6 +141,9 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  opacity: 0.6;
+  -webkit-transition: 1s;
+  transition: 1s;
 }
 
 #scroll_top[data-show="false"] {
@@ -53,6 +153,8 @@ body {
 
 #scroll_top svg {
   color: white;
+  pointer-events: none;
+  opacity: 0.6;
 }
 
 #scroll_top:hover {
@@ -61,6 +163,10 @@ body {
   background: linear-gradient(315deg, #1e1e1e, #232323);
   -webkit-box-shadow: -6px -6px 7px #101010, 6px 6px 7px #323232;
           box-shadow: -6px -6px 7px #101010, 6px 6px 7px #323232;
+}
+
+#scroll_top:hover svg {
+  opacity: 1;
 }
 
 header {
@@ -100,7 +206,7 @@ header .fond_ecriture h1 {
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: white;
   font-family: "HelveticaNeueLTStd-Bd";
-  opacity: 0.1;
+  opacity: 0.04;
   -webkit-animation: Prenom_anim 2.5s;
           animation: Prenom_anim 2.5s;
 }
@@ -260,6 +366,8 @@ header .introduction button:last-child {
   width: 40%;
   height: 100%;
   margin-top: -85%;
+  -webkit-animation: bio_paragraphe_into 2s;
+          animation: bio_paragraphe_into 2s;
 }
 
 .bio_paragraphe p {
@@ -267,6 +375,24 @@ header .introduction button:last-child {
   margin-right: 20%;
   color: white;
   font-size: 120%;
+}
+
+@-webkit-keyframes bio_paragraphe_into {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes bio_paragraphe_into {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .portfolio {
@@ -378,6 +504,179 @@ header .introduction button:last-child {
   }
 }
 
+.h3_competences_anim {
+  -webkit-animation: competences_anim 3s;
+          animation: competences_anim 3s;
+  background-color: white;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+@-webkit-keyframes competences_anim {
+  0% {
+    background-color: rgba(255, 255, 255, 0);
+  }
+  80% {
+    background-color: rgba(255, 255, 255, 0);
+  }
+  100% {
+    background-color: white;
+  }
+}
+
+@keyframes competences_anim {
+  0% {
+    background-color: rgba(255, 255, 255, 0);
+  }
+  80% {
+    background-color: rgba(255, 255, 255, 0);
+  }
+  100% {
+    background-color: white;
+  }
+}
+
+.competences {
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.competences h3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-transform: uppercase;
+  -webkit-text-fill-color: #212121;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+  margin-top: 20%;
+  -webkit-transform: rotate(335deg);
+          transform: rotate(335deg);
+  font-size: 1300%;
+  font-family: "Playfair Display", serif;
+  opacity: 0.05;
+  position: absolute;
+  -webkit-transition: 10s;
+  transition: 10s;
+}
+
+.competences div {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-top: 1px solid #f2f2f2;
+  border-bottom: 1px solid #f2f2f2;
+  position: absolute;
+  margin-top: 20%;
+  height: 90px;
+  /*&::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 300vw;
+      height: 1px;
+      background-color: $third_color;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      width: 300vw;
+      height: 1px;
+      background-color: $third_color;
+    }*/
+}
+
+.competences div span,
+.competences div span::after {
+  letter-spacing: 3.3px;
+}
+
+.competences div span {
+  font-family: "Playfair Display", serif;
+  color: #f2f2f2;
+  font-size: 250%;
+  font-weight: bold;
+  -webkit-animation: defilement 10s infinite linear;
+          animation: defilement 10s infinite linear;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  position: absolute;
+  font-size: 50px;
+}
+
+.competences div span::after {
+  content: attr(data-text);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: "Playfair Display", serif;
+  color: #f2f2f2;
+  font-size: 150%;
+  font-weight: bold;
+  -webkit-animation: defilement_after 10s infinite linear;
+          animation: defilement_after 10s infinite linear;
+  width: 100%;
+  position: absolute;
+  font-size: 50px;
+}
+
+@-webkit-keyframes defilement {
+  0% {
+    margin-left: 0;
+  }
+  100% {
+    margin-left: -100%;
+  }
+}
+
+@keyframes defilement {
+  0% {
+    margin-left: 0;
+  }
+  100% {
+    margin-left: -100%;
+  }
+}
+
+@-webkit-keyframes defilement_after {
+  0% {
+    margin-left: 100%;
+  }
+  100% {
+    margin-left: 100%;
+  }
+}
+
+@keyframes defilement_after {
+  0% {
+    margin-left: 100%;
+  }
+  100% {
+    margin-left: 100%;
+  }
+}
+
 @-webkit-keyframes Prenom_anim {
   0% {
     opacity: 0;
@@ -389,7 +688,7 @@ header .introduction button:last-child {
     opacity: 1;
   }
   100% {
-    opacity: 0.1;
+    opacity: 0.04;
   }
 }
 
@@ -404,7 +703,7 @@ header .introduction button:last-child {
     opacity: 1;
   }
   100% {
-    opacity: 0.1;
+    opacity: 0.04;
   }
 }
 
@@ -519,10 +818,9 @@ header .introduction button:last-child {
   top: 5%;
   font-size: 120%;
   text-decoration: none;
-  background-color: #212121;
-  color: white;
+  color: #212121;
   border: none;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid #212121;
   cursor: pointer;
 }
 
@@ -535,7 +833,7 @@ header .introduction button:last-child {
   height: 100vh;
   z-index: 15;
   position: fixed;
-  background: #212121;
+  background: #f2f2f2;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -552,8 +850,6 @@ header .introduction button:last-child {
 }
 
 .menu_section div {
-  -webkit-box-shadow: -18px 13px 16px 0px #f2f2f2;
-          box-shadow: -18px 13px 16px 0px #f2f2f2;
   border-radius: 50%;
   width: 45vw;
   height: 45vw;
@@ -572,7 +868,7 @@ header .introduction button:last-child {
 }
 
 .menu_section div a {
-  color: #f2f2f2;
+  color: #212121;
   text-decoration: none;
   font-size: 4.3vw;
   text-transform: uppercase;
@@ -594,7 +890,7 @@ header .introduction button:last-child {
 
 .menu_section div a::before {
   display: block;
-  background-color: #f2f2f2;
+  background-color: #212121;
   height: 1px;
   width: 2.5vw;
   content: "";
@@ -611,6 +907,7 @@ header .introduction button:last-child {
 .menu_section div a::after {
   display: block;
   background-color: #f2f2f2;
+  background-color: #212121;
   height: 1px;
   width: 2.5vw;
   content: "";

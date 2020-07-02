@@ -1,7 +1,54 @@
-//icons
+//!icons
 feather.replace();
 
-//scroll to top
+/*
+//!CURSOR
+const cursor = document.querySelector(".cursor");
+//const cursor = document.getElementsByClassName("cursor")[0];
+
+document.addEventListener("mousemove", (e) => {
+  cursor.setAttribute(
+    "style",
+    "top: " + (e.pageY - 7) + "px; left: " + (e.pageX - 7) + "px;"
+  );
+});
+
+const on_hover = document.querySelector("nav");
+const on_hover_menu = document.querySelector("#menu_onclick");
+const on_hover_img = document.getElementsByTagName("IMG")[1];
+
+on_hover.onmouseover = (e) => {
+  console.log("ouais tu me hover");
+  cursor.classList.add("cursor_hover");
+};
+on_hover_menu.onmouseover = (e) => {
+  console.log("ouais tu me hover");
+  cursor.classList.add("cursor_hover");
+};
+on_hover_img.onmouseover = (e) => {
+  console.log("ouais tu me hover");
+  cursor.classList.add("cursor_hover");
+};
+
+on_hover.onmouseleave = (e) => {
+  console.log("non tu me hover plus");
+  cursor.classList.remove("cursor_hover");
+};
+on_hover_menu.onmouseleave = (e) => {
+  console.log("non tu me hover plus");
+  cursor.classList.remove("cursor_hover");
+};
+on_hover_img.onmouseleave = (e) => {
+  console.log("non tu me hover plus");
+  cursor.classList.remove("cursor_hover");
+};
+/*
+on_hover.addEventListener("onmouseover", function(e) {
+  console.log("ouais tu me hover");
+  cursor.classList.add("cursor_hover");
+})*/
+
+//!scroll to top
 const scroll_to_top = document.getElementById("scroll_top");
 const menu_section = document.getElementById("menu_onclick");
 let dataShow = false;
@@ -26,12 +73,12 @@ scroll_to_top.addEventListener("click", () => {
   });
 });
 
-// biographie
+// ! biographie
 var tl = new TimelineMax({ onUpdate: updatePercentage });
 
 const controller = new ScrollMagic.Controller();
 
-tl.from(".bio_paragraphe", 0.5, { y: 1, opacity: 0 });
+tl.from(".bio_paragraphe", 0.5, { y: 1 });
 tl.from(".logo path", 1.5, { opacity: 1 });
 tl.from(".ma_tete", 1, { opacity: 0.8, x: 0 });
 
@@ -50,6 +97,7 @@ function updatePercentage() {
 
 // apparition on scroll
 const textanim = document.querySelectorAll(".textanim");
+const textanim_competences = document.querySelectorAll(".h3_competences");
 
 observer_textanim = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
@@ -57,6 +105,7 @@ observer_textanim = new IntersectionObserver((entries) => {
       document.getElementById("textanim").classList.add("textanim_true");
       console.log("yes");
     } else {
+      document.getElementById("textanim").classList.remove("textanim_true");
     }
   });
 });
@@ -64,6 +113,23 @@ textanim.forEach((image) => {
   observer_textanim.observe(image);
 });
 
+observer_textanim_competences = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.intersectionRatio > 0) {
+      document
+        .getElementById("h3_competences")
+        .classList.add("h3_competences_anim");
+      console.log("yes");
+    } else {
+      document
+        .getElementsByClassName("h3_competences")
+        .classList.remove("h3_competences_anim");
+    }
+  });
+});
+textanim_competences.forEach((image) => {
+  observer_textanim_competences.observe(image);
+});
 // portfolio
 
 var tl2 = new TimelineMax({ onUpdate: updatePercentage2 });

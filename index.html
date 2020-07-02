@@ -28,7 +28,8 @@
     -->
     <title>Florian TELLIER</title>
   </head>
-  <body>
+  <body class="body">
+    <div class="cursor"></div>
     <section class="menu_section menu_section_close" id="menu_section">
       <a
         id="menu_onclick_close"
@@ -43,6 +44,7 @@
               <a
                 href="#Biographie"
                 onclick="document.getElementById('menu_section').className = 'menu_section menu_section_close'; "
+                class="on_hover_anim"
               >
                 Biographie</a
               >
@@ -52,6 +54,7 @@
               <a
                 href="#portfolio"
                 onclick="document.getElementById('menu_section').className = 'menu_section menu_section_close'; "
+                class="on_hover_anim"
               >
                 Portfolio</a
               >
@@ -59,8 +62,9 @@
 
             <li>
               <a
-                href="#compétences"
+                href="#competences"
                 onclick="document.getElementById('menu_section').className = 'menu_section menu_section_close'; "
+                class="on_hover_anim"
               >
                 Compétences</a
               >
@@ -70,6 +74,7 @@
               <a
                 href="#contact"
                 onclick="document.getElementById('menu_section').className = 'menu_section menu_section_close'; "
+                class="on_hover_anim"
               >
                 Contact</a
               >
@@ -78,12 +83,14 @@
         </nav>
       </div>
     </section>
+    <div class="scroll_down"></div>
     <div id="scroll_top" data-show="false">
-      <i data-feather="arrow-up"></i>
+      <i data-feather="arrow-up" class="on_hover_anim"></i>
     </div>
     <div id="menu_onclick" data-show="false">
       <a
         onclick="document.getElementById('menu_section').className = 'menu_section menu_section_open'; "
+        class="on_hover_anim"
       >
         Menu
       </a>
@@ -96,10 +103,16 @@
       </div>
       <nav>
         <ul>
-          <li><a href="#Biographie" class="nav_a">Biographie</a></li>
-          <li><a href="#portfolio" class="nav_a">Portfolio</a></li>
-          <li><a href="#compétences" class="nav_a">Compétences</a></li>
-          <li><a href="#contact" class="nav_a">Contact</a></li>
+          <li>
+            <a href="#Biographie" class="nav_a on_hover_anim">Biographie</a>
+          </li>
+          <li>
+            <a href="#portfolio" class="nav_a on_hover_anim">Portfolio</a>
+          </li>
+          <li>
+            <a href="#competences" class="nav_a on_hover_anim">Compétences</a>
+          </li>
+          <li><a href="#contact" class="nav_a on_hover_anim">Contact</a></li>
         </ul>
       </nav>
 
@@ -109,10 +122,15 @@
           Pour améliorer votre lien avec votre clientèle et vous installer dans
           le marché de demain
         </p>
-        <button onclick="window.location.href = '#portfolio';">
+        <button
+          onclick="window.location.href = '#portfolio';"
+          class="on_hover_anim"
+        >
           Portfolio
         </button>
-        <button onclick="window.location.href = '';">Contact</button>
+        <button onclick="window.location.href = '';" class="on_hover_anim">
+          Contact
+        </button>
       </div>
     </header>
 
@@ -264,6 +282,30 @@
       <img class="projet_architecture" src="photos/projet_architecture.JPG" />
       <img class="projet_login" src="photos/projet_login.JPG" />
       <img class="projet_drone" src="photos/projet_drone.png" />
+    </section>
+
+    <section class="competences" id="competences">
+      <h3 class="h3_competences" id="h3_competences">Compétences</h3>
+      <div>
+        <span
+          data-text="HTML // CSS // JAVASCRIPT // PYTHON // GIT // UI // UX  //"
+          >HTML // CSS // JAVASCRIPT // PYTHON // GIT // UI // UX //</span
+        >
+        <!--
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JAVASCRIPT</span>
+        <span>PYTHON</span>
+        <span>GIT</span>
+        <span>UI/UX</span>
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JAVASCRIPT</span>
+        <span>PYTHON</span>
+        <span>GIT</span>
+        <span>UI/UX</span>
+        -->
+      </div>
     </section>
 
     <script type="text/javascript" src="script.js"></script>

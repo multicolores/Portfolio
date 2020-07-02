@@ -7,6 +7,12 @@ $third_color: #f2f2f2;
   color: $secondary_color;
   font-family: "Playfair Display", serif;
 }
+@mixin text_stroke {
+  text-transform: uppercase;
+  -webkit-text-fill-color: $background_color;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: $text_color;
+}
 html {
   scroll-behavior: smooth;
 }
@@ -16,14 +22,82 @@ body {
   padding: 0;
   overflow-x: hidden;
 }
+*::selection {
+  background: #f3f3f1f7;
+  color: black;
+  mix-blend-mode: difference;
+}
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
 * {
   font-family: Cambria, calibri, Cochin, Georgia, Times, "Times New Roman",
     serif;
   list-style: none; /* elève les point des <li> */
   padding: 0;
   box-sizing: border-box;
+  cursor: default;
 }
-
+/*
+//! cursor
+.cursor {
+  z-index: 100;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: $third_color;
+  position: absolute;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  transition: width 0.3s ease, height 0.3s ease;
+}
+.cursor_hover {
+  width: 50px;
+  height: 50px;
+  border: 1px solid $third_color;
+  background-color: rgba(255, 255, 255, 0);
+  transform: translate(-15px, -15px);
+}*/
+//! scroll bottom anim
+.scroll_down {
+  position: fixed;
+  right: 0.3%;
+  width: 25px;
+  height: 40px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.089);
+  overflow: hidden;
+  right: 50%;
+  top: 92%;
+  animation: introduction_anim 6s;
+  z-index: -1;
+  &::before {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.384);
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: scroll_down 1.7s ease-out infinite;
+  }
+}
+@keyframes scroll_down {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+}
 //! scroll to top button
 #scroll_top {
   position: fixed;
@@ -41,18 +115,25 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  opacity: 0.6;
+  transition: 1s;
   &[data-show="false"] {
     bottom: 0;
     opacity: 0;
   }
   & svg {
     color: $text_color;
+    pointer-events: none;
+    opacity: 0.6;
   }
   &:hover {
     cursor: pointer;
     border-radius: 13px;
     background: linear-gradient(315deg, #1e1e1e, #232323);
     box-shadow: -6px -6px 7px #101010, 6px 6px 7px #323232;
+    & svg {
+      opacity: 1;
+    }
   }
 }
 
@@ -80,7 +161,7 @@ header {
       -webkit-text-stroke-width: 1px;
       -webkit-text-stroke-color: white;
       font-family: "HelveticaNeueLTStd-Bd";
-      opacity: 0.1;
+      opacity: 0.04;
       animation: Prenom_anim 2.5s;
       &:first-child {
         margin-right: 10vw;
@@ -202,6 +283,7 @@ header {
   width: 40%;
   height: 100%;
   margin-top: -85%;
+  animation: bio_paragraphe_into 2s;
   p {
     margin-left: 20%;
     margin-right: 20%;
@@ -209,7 +291,14 @@ header {
     font-size: 120%;
   }
 }
-
+@keyframes bio_paragraphe_into {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 //!PORTFOLIO
 
 .portfolio {
@@ -288,6 +377,116 @@ header {
     stroke-dashoffset: 0;
   }
 }
+
+//! COMPETENCES
+.h3_competences_anim {
+  animation: competences_anim 3s;
+  background-color: white;
+  transition: 0.5s;
+}
+@keyframes competences_anim {
+  0% {
+    background-color: rgba(255, 255, 255, 0);
+  }
+  80% {
+    background-color: rgba(255, 255, 255, 0);
+  }
+  100% {
+    background-color: white;
+  }
+}
+.competences {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  h3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include text_stroke();
+    margin-top: 20%;
+    transform: rotate(335deg);
+    font-size: 1300%;
+    font-family: "Playfair Display", serif;
+    opacity: 0.05;
+    position: absolute;
+    transition: 10s;
+  }
+  div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid $third_color;
+    border-bottom: 1px solid $third_color;
+    position: absolute;
+    margin-top: 20%;
+    height: 90px;
+    // height: 10%;
+    /*&::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 300vw;
+      height: 1px;
+      background-color: $third_color;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      width: 300vw;
+      height: 1px;
+      background-color: $third_color;
+    }*/
+    span,
+    span::after {
+      letter-spacing: 3.3px;
+    }
+    span {
+      font-family: "Playfair Display", serif;
+      color: $third_color;
+      font-size: 250%;
+      font-weight: bold;
+
+      animation: defilement 10s infinite linear;
+      display: flex;
+      width: 100%;
+      position: absolute;
+      font-size: 50px;
+      &::after {
+        content: attr(data-text);
+        display: flex;
+        font-family: "Playfair Display", serif;
+        color: $third_color;
+        font-size: 150%;
+        font-weight: bold;
+        animation: defilement_after 10s infinite linear;
+        width: 100%;
+        position: absolute;
+        font-size: 50px;
+      }
+    }
+  }
+}
+@keyframes defilement {
+  0% {
+    margin-left: 0;
+  }
+  100% {
+    margin-left: -100%;
+  }
+}
+
+@keyframes defilement_after {
+  0% {
+    margin-left: 100%;
+  }
+  100% {
+    margin-left: 100%;
+  }
+}
 @keyframes Prenom_anim {
   0% {
     opacity: 0;
@@ -299,7 +498,7 @@ header {
     opacity: 1;
   }
   100% {
-    opacity: 0.1;
+    opacity: 0.04;
   }
 }
 @keyframes nav_anim {
@@ -363,10 +562,12 @@ header {
   top: 5%;
   font-size: 120%;
   text-decoration: none;
-  background-color: $background_color;
-  color: $text_color;
+  //background-color: $background_color;
+  //color: $text_color;
+  color: $background_color;
   border: none;
-  border-bottom: 1px solid white;
+  //border-bottom: 1px solid white;
+  border-bottom: 1px solid $background_color;
   cursor: pointer;
   &:hover {
     color: $secondary_color;
@@ -377,14 +578,17 @@ header {
   height: 100vh;
   z-index: 15;
   position: fixed;
-  background: $background_color;
+  //background: $background_color;
+
+  background: $third_color;
   display: flex;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
   transition: 1s cubic-bezier(0.5, 0.1, 0, 0.99);
   div {
-    box-shadow: -18px 13px 16px 0px $third_color;
+    //box-shadow: -18px 13px 16px 0px $third_color;
+
     border-radius: 50%;
     width: 45vw;
     height: 45vw;
@@ -394,7 +598,9 @@ header {
     text-align: center;
     transition: 0.5s;
     a {
-      color: $third_color;
+      //color: $third_color;
+
+      color: $background_color;
       text-decoration: none;
       font-size: 4.3vw;
       text-transform: uppercase;
@@ -407,7 +613,9 @@ header {
       opacity: 0.6;
       &::before {
         display: block;
-        background-color: $third_color;
+        //background-color: $third_color;
+
+        background-color: $background_color;
         height: 1px;
         width: 2.5vw;
         content: "";
@@ -418,6 +626,8 @@ header {
       &::after {
         display: block;
         background-color: $third_color;
+
+        background-color: $background_color;
         height: 1px;
         width: 2.5vw;
         content: "";
