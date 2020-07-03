@@ -13,11 +13,11 @@ document.addEventListener("mousemove", (e) => {
   );
 });
 
-const on_hover = document.querySelector("nav");
+const on_hover = document.querySelectorAll("nav");
 const on_hover_menu = document.querySelector("#menu_onclick");
 const on_hover_img = document.getElementsByTagName("IMG")[1];
 
-on_hover.onmouseover = (e) => {
+on_hover.forEach.onmouseover = (e) => {
   console.log("ouais tu me hover");
   cursor.classList.add("cursor_hover");
 };

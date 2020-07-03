@@ -21,6 +21,11 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  scroll-snap-type: y proximity;
+  overflow-y: scroll;
+}
+section {
+  scroll-snap-align: start;
 }
 *::selection {
   background: #f3f3f1f7;
@@ -407,7 +412,7 @@ header {
     align-items: center;
     @include text_stroke();
     margin-top: 20%;
-    transform: rotate(335deg);
+    transform: rotate(335deg) translateY(-30%);
     font-size: 1300%;
     font-family: "Playfair Display", serif;
     opacity: 0.05;
@@ -455,6 +460,7 @@ header {
       width: 100%;
       position: absolute;
       font-size: 50px;
+      font-size: 3.2vw;
       &::after {
         content: attr(data-text);
         display: flex;
@@ -466,6 +472,7 @@ header {
         width: 100%;
         position: absolute;
         font-size: 50px;
+        font-size: 3.2vw;
       }
     }
   }
@@ -485,6 +492,77 @@ header {
   }
   100% {
     margin-left: 100%;
+  }
+}
+//! CONTACT
+.contact {
+  width: 100vw;
+  height: 100vh;
+  h3 {
+    margin-left: 50%;
+    transform: translate(-50%, 50%);
+    font-size: 500%;
+    font-family: "Playfair Display", serif;
+    @include text_stroke();
+    letter-spacing: 2px;
+    color: $third_color;
+  }
+  .contact_text {
+    width: 30%;
+    position: absolute;
+    margin-left: 5%;
+    transform: translateY(20vh);
+    color: white;
+    font-size: 2vw;
+  }
+  .form {
+    width: 50%;
+    height: 60%;
+    right: 3%;
+    transform: translateY(20%);
+    position: absolute;
+    div {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      input {
+        display: flex;
+        width: 50%;
+        height: 5vh;
+        border: 1px solid rgba(255, 255, 255, 0.096);
+        &:first-child {
+          margin-left: 7%;
+        }
+        &:last-child {
+          margin-right: 7%;
+        }
+      }
+    }
+    textarea {
+      width: 100%;
+      height: 20vh;
+      background-color: rgba(255, 0, 0, 0);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.096);
+    }
+    input {
+      margin: 5vh;
+      color: white;
+      background-color: #7e7f8300;
+      border: 1px solid rgba(255, 255, 255, 0.466);
+      border-radius: 3px;
+    }
+    .input_button {
+      width: 20%;
+      height: 5vh;
+      margin-left: 50%;
+      transform: translateX(-50%);
+      transition: 0.7s ease-out;
+      &:hover {
+        background-color: $third_color;
+        color: $background_color;
+      }
+    }
   }
 }
 @keyframes Prenom_anim {
@@ -547,7 +625,7 @@ header {
   a {
     font-size: 120%;
     cursor: pointer;
-    background-color: $background_color;
+    background-color: rgba(128, 128, 128, 0);
     color: $text_color;
     border: none;
     border-bottom: 1px solid white;
