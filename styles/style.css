@@ -1,4 +1,17 @@
 @charset "UTF-8";
+/*
+@media (prefer-color-scheme: light) {
+  $background_color: #f2f2f2;
+  $text_color: #212121;
+  $secondary_color: #dbcba9;
+  $third_color: #212121;
+}
+@media (prefer-color-scheme: dark) {
+  $background_color: #f2f2f2;
+  $text_color: #212121;
+  $secondary_color: #dbcba9;
+  $third_color: #212121;
+}*/
 html {
   scroll-behavior: smooth;
 }
@@ -137,8 +150,6 @@ section {
   z-index: 13;
   border-radius: 13px;
   background: #212121;
-  -webkit-box-shadow: inset -6px -6px 7px #101010, inset 6px 6px 7px #323232;
-          box-shadow: inset -6px -6px 7px #101010, inset 6px 6px 7px #323232;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -261,6 +272,8 @@ header nav ul a {
   opacity: 0.7;
   -webkit-transition: 0.3s;
   transition: 0.3s;
+  -webkit-transform-origin: center;
+          transform-origin: center;
 }
 
 header nav ul a:hover {
@@ -329,8 +342,8 @@ header .introduction button {
 }
 
 header .introduction button:hover {
-  width: 31%;
-  height: 7.3vh;
+  -webkit-transform: translateY(-10%);
+          transform: translateY(-10%);
 }
 
 header .introduction button:last-child {
@@ -442,6 +455,8 @@ header .introduction button:last-child {
   -webkit-text-fill-color: transparent;
   width: 50%;
   opacity: 0.8;
+  -webkit-transform: translateY(-15%);
+          transform: translateY(-15%);
 }
 
 .portfolio img {
@@ -450,8 +465,8 @@ header .introduction button:last-child {
   width: 50%;
   top: 0;
   opacity: 1;
-  -webkit-transform: translate(120%, 40vh);
-          transform: translate(120%, 40vh);
+  -webkit-transform: translate(120%, 30vh);
+          transform: translate(120%, 30vh);
   -webkit-transition: 0.5s;
   transition: 0.5s;
   border-radius: 1%;
@@ -464,8 +479,8 @@ header .introduction button:last-child {
   left: 10%;
   width: 30%;
   opacity: 1;
-  -webkit-transform: translate(300%, 35vh);
-          transform: translate(300%, 35vh);
+  -webkit-transform: translate(300%, 30vh);
+          transform: translate(300%, 30vh);
 }
 
 .portfolio img:hover {
@@ -481,8 +496,8 @@ header .introduction button:last-child {
 }
 
 .portfolio .projet_drone {
-  -webkit-transform: translate(120%, 40vh);
-          transform: translate(120%, 40vh);
+  -webkit-transform: translate(120%, 30vh);
+          transform: translate(120%, 30vh);
 }
 
 .textanim_true {
@@ -631,6 +646,7 @@ header .introduction button:last-child {
   position: absolute;
   font-size: 50px;
   font-size: 3.2vw;
+  white-space: nowrap;
 }
 
 .competences div span::after {
@@ -648,6 +664,7 @@ header .introduction button:last-child {
   position: absolute;
   font-size: 50px;
   font-size: 3.2vw;
+  padding-left: 0px;
 }
 
 @-webkit-keyframes defilement {
@@ -692,9 +709,8 @@ header .introduction button:last-child {
 }
 
 .contact h3 {
-  margin-left: 50%;
-  -webkit-transform: translate(-50%, 50%);
-          transform: translate(-50%, 50%);
+  -webkit-transform: translateY(50%);
+          transform: translateY(50%);
   font-size: 500%;
   font-family: "Playfair Display", serif;
   text-transform: uppercase;
@@ -703,6 +719,8 @@ header .introduction button:last-child {
   -webkit-text-stroke-color: white;
   letter-spacing: 2px;
   color: #f2f2f2;
+  width: 100%;
+  text-align: center;
 }
 
 .contact .contact_text {
@@ -712,7 +730,8 @@ header .introduction button:last-child {
   -webkit-transform: translateY(20vh);
           transform: translateY(20vh);
   color: white;
-  font-size: 2vw;
+  font-size: 1.5vw;
+  opacity: 0.8;
 }
 
 .contact .form {
@@ -780,6 +799,36 @@ header .introduction button:last-child {
 .contact .form .input_button:hover {
   background-color: #f2f2f2;
   color: #212121;
+}
+
+@-webkit-keyframes icon_description_hover {
+  0% {
+    top: -110%;
+    left: 90%;
+  }
+  50% {
+    top: 10%;
+    left: -30%;
+  }
+  100% {
+    top: -10%;
+    left: -10%;
+  }
+}
+
+@keyframes icon_description_hover {
+  0% {
+    top: -110%;
+    left: 90%;
+  }
+  50% {
+    top: 10%;
+    left: -30%;
+  }
+  100% {
+    top: -10%;
+    left: -10%;
+  }
 }
 
 @-webkit-keyframes Prenom_anim {

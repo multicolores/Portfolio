@@ -13,6 +13,19 @@ $third_color: #f2f2f2;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: $text_color;
 }
+/*
+@media (prefer-color-scheme: light) {
+  $background_color: #f2f2f2;
+  $text_color: #212121;
+  $secondary_color: #dbcba9;
+  $third_color: #212121;
+}
+@media (prefer-color-scheme: dark) {
+  $background_color: #f2f2f2;
+  $text_color: #212121;
+  $secondary_color: #dbcba9;
+  $third_color: #212121;
+}*/
 html {
   scroll-behavior: smooth;
 }
@@ -116,7 +129,7 @@ section {
   z-index: 13;
   border-radius: 13px;
   background: #212121;
-  box-shadow: inset -6px -6px 7px #101010, inset 6px 6px 7px #323232;
+  // box-shadow: inset -6px -6px 7px #101010, inset 6px 6px 7px #323232;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -195,6 +208,7 @@ header {
         font-size: 1.2em;
         opacity: 0.7;
         transition: 0.3s;
+        transform-origin: center;
         &:hover {
           opacity: 1;
         }
@@ -247,8 +261,7 @@ header {
       transition: 0.5s;
       animation: introduction_anim 4s;
       &:hover {
-        width: 31%;
-        height: 7.3vh;
+        transform: translateY(-10%);
       }
       &:last-child {
         background-color: $background_color;
@@ -333,6 +346,7 @@ header {
     -webkit-text-fill-color: transparent;
     width: 50%;
     opacity: 0.8;
+    transform: translateY(-15%);
   }
   img {
     position: absolute;
@@ -341,7 +355,7 @@ header {
     top: 0;
     opacity: 1;
 
-    transform: translate(120%, 40vh);
+    transform: translate(120%, 30vh);
 
     transition: 0.5s;
     border-radius: 1%;
@@ -351,7 +365,7 @@ header {
       left: 10%;
       width: 30%;
       opacity: 1;
-      transform: translate(300%, 35vh);
+      transform: translate(300%, 30vh);
     }
     &:hover {
       filter: contrast(110%);
@@ -363,7 +377,7 @@ header {
     }
   }
   .projet_drone {
-    transform: translate(120%, 40vh);
+    transform: translate(120%, 30vh);
   }
 }
 
@@ -461,6 +475,7 @@ header {
       position: absolute;
       font-size: 50px;
       font-size: 3.2vw;
+      white-space: nowrap;
       &::after {
         content: attr(data-text);
         display: flex;
@@ -473,6 +488,7 @@ header {
         position: absolute;
         font-size: 50px;
         font-size: 3.2vw;
+        padding-left: 0px;
       }
     }
   }
@@ -499,21 +515,24 @@ header {
   width: 100vw;
   height: 100vh;
   h3 {
-    margin-left: 50%;
-    transform: translate(-50%, 50%);
+    transform: translateY(50%);
     font-size: 500%;
     font-family: "Playfair Display", serif;
     @include text_stroke();
     letter-spacing: 2px;
     color: $third_color;
+    width: 100%;
+    text-align: center;
   }
+
   .contact_text {
     width: 30%;
     position: absolute;
     margin-left: 5%;
     transform: translateY(20vh);
     color: white;
-    font-size: 2vw;
+    font-size: 1.5vw;
+    opacity: 0.8;
   }
   .form {
     width: 50%;
@@ -563,6 +582,20 @@ header {
         color: $background_color;
       }
     }
+  }
+}
+@keyframes icon_description_hover {
+  0% {
+    top: -110%;
+    left: 90%;
+  }
+  50% {
+    top: 10%;
+    left: -30%;
+  }
+  100% {
+    top: -10%;
+    left: -10%;
   }
 }
 @keyframes Prenom_anim {
