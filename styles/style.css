@@ -42,14 +42,36 @@ section {
   mix-blend-mode: difference;
 }
 
+/*
+*:focus {
+  outline: 1px solid $secondary_color;
+}
+::-moz-focus-inner {
+  border: 0;
+}*/
+/*
 ::-webkit-scrollbar {
   width: 0px;
   height: 0px;
 }
-
 ::-webkit-scrollbar-button {
   width: 0px;
   height: 0px;
+}*/
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ffffff00;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #f2f2f2;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #dbcba9;
 }
 
 * {
@@ -224,7 +246,7 @@ header .fond_ecriture h1 {
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: white;
   font-family: "HelveticaNeueLTStd-Bd";
-  opacity: 0.04;
+  opacity: 0.06;
   -webkit-animation: Prenom_anim 2.5s;
           animation: Prenom_anim 2.5s;
 }
@@ -395,6 +417,7 @@ header .introduction button:last-child {
   margin-right: 20%;
   color: white;
   font-size: 120%;
+  padding: 1.5%;
 }
 
 @-webkit-keyframes bio_paragraphe_into {
@@ -842,7 +865,7 @@ header .introduction button:last-child {
     opacity: 1;
   }
   100% {
-    opacity: 0.04;
+    opacity: 0.06;
   }
 }
 
@@ -857,7 +880,7 @@ header .introduction button:last-child {
     opacity: 1;
   }
   100% {
-    opacity: 0.04;
+    opacity: 0.06;
   }
 }
 

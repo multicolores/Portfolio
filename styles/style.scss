@@ -45,6 +45,14 @@ section {
   color: black;
   mix-blend-mode: difference;
 }
+/*
+*:focus {
+  outline: 1px solid $secondary_color;
+}
+::-moz-focus-inner {
+  border: 0;
+}*/
+/*
 ::-webkit-scrollbar {
   width: 0px;
   height: 0px;
@@ -52,6 +60,18 @@ section {
 ::-webkit-scrollbar-button {
   width: 0px;
   height: 0px;
+}*/
+::-webkit-scrollbar {
+  width: 2px;
+}
+::-webkit-scrollbar-track {
+  background: #ffffff00;
+}
+::-webkit-scrollbar-thumb {
+  background: $third_color;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: $secondary_color;
 }
 * {
   font-family: Cambria, calibri, Cochin, Georgia, Times, "Times New Roman",
@@ -179,7 +199,7 @@ header {
       -webkit-text-stroke-width: 1px;
       -webkit-text-stroke-color: white;
       font-family: "HelveticaNeueLTStd-Bd";
-      opacity: 0.04;
+      opacity: 0.06;
       animation: Prenom_anim 2.5s;
       &:first-child {
         margin-right: 10vw;
@@ -307,6 +327,7 @@ header {
     margin-right: 20%;
     color: $text_color;
     font-size: 120%;
+    padding: 1.5%;
   }
 }
 @keyframes bio_paragraphe_into {
@@ -609,7 +630,7 @@ header {
     opacity: 1;
   }
   100% {
-    opacity: 0.04;
+    opacity: 0.06;
   }
 }
 @keyframes nav_anim {

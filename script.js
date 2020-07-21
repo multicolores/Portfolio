@@ -48,11 +48,16 @@ on_hover.addEventListener("onmouseover", function(e) {
   cursor.classList.add("cursor_hover");
 })*/
 
-//!scroll to top
+//!scroll to top   et menu
 const scroll_to_top = document.getElementById("scroll_top");
 const menu_section = document.getElementById("menu_onclick");
 let dataShow = false;
 
+let oldScrollPosition = 0;
+let isScrollingUp = false;
+let isMenuVisible = true;
+
+//pour faire apparêtre quand on commence a scroll  ( pour le menue c'est pas obligé car on a fait un truc en dessus mais pas grave)
 window.addEventListener("scroll", () => {
   if (window.scrollY > 60 && !dataShow) {
     scroll_to_top.setAttribute("data-show", "true");
@@ -63,6 +68,21 @@ window.addEventListener("scroll", () => {
     scroll_to_top.setAttribute("data-show", "false");
     menu_section.setAttribute("data-show", "false");
     dataShow = false;
+  }
+});
+
+//pour faire apparêtre quand on scroll vers le haut
+window.addEventListener("scroll", () => {
+  isScrollingUp = oldScrollPosition > window.scrollY; // si on scroll vers le haut alors le isScrollingUp = True
+  oldScrollPosition = window.scrollY;
+
+  if (!isScrollingUp && window.scrollY > 60 && isMenuVisible) {
+    menu_section.setAttribute("data-show", "false");
+    isMenuVisible = flase;
+  }
+  if (isScrollingUp && !isMenuVisible) {
+    scroll_to_top.setAttribute("data-show", "true");
+    isMenuVisible = true;
   }
 });
 
@@ -103,7 +123,6 @@ observer_textanim = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.intersectionRatio > 0) {
       document.getElementById("textanim").classList.add("textanim_true");
-      console.log("yes");
     } else {
       document.getElementById("textanim").classList.remove("textanim_true");
     }
